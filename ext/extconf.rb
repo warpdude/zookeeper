@@ -6,7 +6,7 @@ HERE = File.expand_path(File.dirname(__FILE__))
 BUNDLE = Dir.glob("zkc-*.tar.gz").first
 BUNDLE_PATH = "c"
 
-$CFLAGS = "#{RbConfig::CONFIG['CFLAGS']} #{$CFLAGS}".gsub("$(cflags)", "").gsub("-arch ppc", "")
+$CFLAGS = "#{RbConfig::CONFIG['CFLAGS']} #{$CFLAGS}".gsub("$(cflags)", "").gsub("-arch ppc", "").gsub("-Werror=shorten-64-to-32", "")
 $LDFLAGS = "#{RbConfig::CONFIG['LDFLAGS']} #{$LDFLAGS}".gsub("$(ldflags)", "").gsub("-arch ppc", "")
 $CXXFLAGS = " -std=gnu++98 #{$CFLAGS}"
 $CPPFLAGS = $ARCH_FLAG = $DLDFLAGS = ""
